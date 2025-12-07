@@ -2,9 +2,28 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Repository Structure
+
+This is the **private development repository** for the Survey platform (yacht survey reporting).
+
+- **Private repo** (this one): `git@github.com:samcloudcode/survey.git` - Main development workspace
+- **Public repo**: `git@github.com:samcloudcode/survey-landing.git` - GitHub Pages landing page only
+
+### Git Workflow
+
+**Regular development:**
+```bash
+git push  # pushes to private repo (default)
+```
+
+**Deploy landing page to public:**
+```bash
+git push public main  # updates GitHub Pages site
+```
+
 ## Project Overview
 
-Static landing page for "Surveil" - an AI-powered yacht survey reporting platform. This is a pure HTML/CSS/JavaScript marketing site with no build process or dependencies.
+Full-stack yacht survey reporting platform with AI-powered document generation. Currently contains the static landing page; application development in progress.
 
 ## How to View/Test
 
@@ -28,10 +47,14 @@ python -m http.server 8000
 
 ## File Structure
 
+### Landing Page (deployed to public repo)
 - **index.html** - Main landing page with semantic HTML structure
 - **styles.css** - Complete styling with CSS custom properties, animations, and responsive design
 - **script.js** - Vanilla JavaScript for interactions (smooth scrolling, form handling, mobile menu)
-- **specs.md** - Product specification for the actual Surveil platform (context document, not part of the website)
+
+### Development Only (private repo)
+- **specs.md** - Product specification for the Survey platform
+- **CLAUDE.md** - Development guidance for Claude Code
 
 ## Technology Stack
 
@@ -84,4 +107,16 @@ JavaScript is minimal and contained in script.js. Currently handles:
 - All animations respect `prefers-reduced-motion` for accessibility
 - Images/icons are CSS-generated (no external image files currently)
 - Mobile menu uses inline styles (consider moving to CSS classes if expanding)
-- The specs.md file is reference material for the product being marketed, not website documentation
+
+## Deployment
+
+When ready to update the public landing page:
+```bash
+# Ensure all changes are committed to private repo
+git push
+
+# Deploy to public GitHub Pages
+git push public main
+```
+
+Note: Only push landing page files (index.html, styles.css, script.js) to public. Keep specs.md and detailed development docs private.
